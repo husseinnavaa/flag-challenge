@@ -1,4 +1,4 @@
-Flag Challenge – Canadian Provinces Edition
+# Flag Challenge – Canadian Provinces Edition
 
 A modern iOS quiz application built with SwiftUI that tests users' knowledge of Canadian provincial flags.
 

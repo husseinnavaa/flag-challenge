@@ -30,16 +30,16 @@ struct WelcomeView: View {
                 // Navigation button that takes the user to QuizView
                 NavigationLink(destination: QuizView()) {
                     Text("Commencer à jouer")
-                        .font(.title2)
+                        .font(.title3)
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity)
+                        .padding(8)
+                        .frame(maxWidth: 200)
                         .background(
                             RoundedRectangle(cornerRadius: 20)
                                 .fill(Color.blue)
                         )
-                        .padding(.horizontal, 40)
+                        .padding(.horizontal, 20)
                 }
             }
         }

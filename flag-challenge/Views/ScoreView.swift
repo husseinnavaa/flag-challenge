@@ -8,23 +8,34 @@
 
 import SwiftUI
 
+// This view is displayed at the end of the quiz.
+// It shows the current score, best score,
+// and allows the user to replay or return home.
 struct ScoreView: View {
-    let score: Int
-    let bestScore: Int
-    let onReplay: () -> Void
+    
+    let score: Int              // Current quiz score
+    let bestScore: Int          // Best recorded score
+    let onReplay: () -> Void    // Function executed when replaying
+    
+    // Allows dismissing the current view
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         ZStack {
+            
+            // Custom background color
             Color("background")
                 .ignoresSafeArea()
             
             VStack(spacing: 30) {
+                
+                // End title
                 Text("Quiz Terminé !")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundColor(.white)
                 
+                // Current score display
                 VStack(spacing: 20) {
                     Text("Votre score")
                         .font(.title2)
@@ -35,6 +46,7 @@ struct ScoreView: View {
                         .foregroundColor(.white)
                 }
                 
+                // Special message if new high score
                 if score == bestScore && score > 0 {
                     VStack {
                         Image("medal")
@@ -48,14 +60,18 @@ struct ScoreView: View {
                     }
                 }
                 
+                // Best score display
                 Text("Meilleur score: \(bestScore)/13")
                     .font(.title3)
                     .foregroundColor(.white.opacity(0.8))
                 
+                // Action buttons
                 VStack(spacing: 20) {
+                    
+                    // Replay button
                     Button(action: {
-                        onReplay()
-                        presentationMode.wrappedValue.dismiss()
+                        onReplay() // Resets the quiz
+                        presentationMode.wrappedValue.dismiss() // Closes this view
                     }) {
                         Text("Rejouer")
                             .font(.title2)
@@ -69,6 +85,7 @@ struct ScoreView: View {
                             )
                     }
                     
+                    // Return to home button
                     Button("Retour à l'accueil") {
                         presentationMode.wrappedValue.dismiss()
                     }

@@ -8,7 +8,9 @@
 
 import SwiftUI
 
+// View that will contain the quiz questions and logic
 struct QuizView: View {
+    
     @StateObject private var viewModel = QuizViewModel()
     @Environment(\.presentationMode) var presentationMode
     
